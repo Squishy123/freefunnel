@@ -14,5 +14,5 @@ function admin_alert_success($message)
 function add_admin_success_alert($message)
 {
 
-	add_action('admin_init', call_user_func('admin_alert_success', $message));
+	add_action('admin_notices', call_user_func('admin_alert_success', $message));
 }

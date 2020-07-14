@@ -1,5 +1,7 @@
 <?php
 
+require plugin_dir_path(__FILE__) . 'templates/alerts.php';
+require plugin_dir_path(__FILE__) . 'actions/posts.php';
 /**
  * Core class
  */
@@ -18,6 +20,9 @@ class FreeFunnel
         } else {
             $this->version = '1.0b';
         }
+
+        //register flow type
+        create_flow_init();
     }
 
     public function run()
@@ -25,8 +30,24 @@ class FreeFunnel
 
         function menu_html()
         {
+            if (isset($_POST['alert'])) {
+                createPost("Sample Page", "sample_page");
+                add_admin_success_alert("You've been alerted!");
+            }
+
 ?>
-            <h1 style="font-size: 100px;">HOE</h1>
+            <h1 style="font-size: 100px;">PAGES</h1>
+            <?php
+            $pages = get_pages();
+            foreach ($pages as $page) {
+                echo '<p><a href="/'.$page->post_name.'">'.$page->post_title.'</a></p>';
+            }
+            ?>
+            <form method="POST">
+                <input type="hidden" name="alert" value="true">
+                <?php submit_button('Create Page') ?>
+            </form>
+
 <?php
         }
         function add_menu_page1()
@@ -43,10 +64,10 @@ class FreeFunnel
 
             add_submenu_page(
                 "freefunnel_dashboard",
-                "Flows",
-                "Flows",
+                "Settings",
+                "Settings",
                 'manage_options',
-                'freefunnel_flows',
+                'freefunnel_settings',
                 'menu_html'
             );
         }
