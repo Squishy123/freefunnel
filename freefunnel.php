@@ -30,7 +30,10 @@ register_deactivation_hook(__FILE__, 'deactivate_freefunnel');
 
 
 // Core plugin class
-require plugin_dir_path(__FILE__).'includes/zebra-settings.php';
+require plugin_dir_path(__FILE__).'includes/menu/zebra-settings.php';
+
+// Gutenblocks
+require plugin_dir_path(__FILE__).'includes/gutenberg/gutenberg.php';
 
 // Start plugin execution
 function run_freefunnel() {

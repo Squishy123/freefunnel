@@ -1,0 +1,35 @@
+{
+  "name": "freefunnel",
+  "version": "1.0.0",
+  "description": "You're Welcome",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Squishy123/freefunnel.git"
+  },
+  "author": "Squishy123",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Squishy123/freefunnel/issues"
+  },
+  "homepage": "https://github.com/Squishy123/freefunnel#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^12.1.1"
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:md:docs": "wp-scripts lint-md-docs",
+    "lint:md:js": "wp-scripts lint-md-js",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "packages-update": "wp-scripts packages-update",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js",
+    "watch": "chokidar \"**/*.scss\" -c \"npm run build\" --initial"
+}
+}
