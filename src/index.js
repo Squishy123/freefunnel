@@ -1,4 +1,9 @@
 const { registerBlockType } = wp.blocks;
+import {
+    InspectorControls,
+} from '@wordpress/block-editor';
+
+const { PanelBody, TextControl} = wp.components;
 
 registerBlockType('zebra/entry-form', {
     // built in attributes
@@ -9,28 +14,59 @@ registerBlockType('zebra/entry-form', {
 
     // custom attributes
     attributes: {
-
+        redirectTo: {
+            type: 'string',
+            source: 'html',
+            default: '/'
+        }
     },
 
     // custom functions
 
     // built-in functions
-    edit() {
+    edit({ attributes, setAttributes }) {
         console.log(zebra_settings)
+
         return (
             <>
-                <h1>ANOTHER ONE!</h1>
-                <h1>HELLO WORLD!</h1>
-                <input type="text" placeholder="BITCH" />
+                <InspectorControls>
+                    <PanelBody title={'Redirect To'}>
+                        <p>Define Redirect Link</p>
+                        <TextControl label="RedirectTo" value={attributes.redirectTo} onChange={(val) => {
+                            setAttributes({redirectTo: val})
+                        }}/>
+                    </PanelBody>
+                </InspectorControls>
+                <h1>{attributes.redirectTo}</h1>
+                <h1>CONTACT</h1>
+                <input type="text" placeholder="Full Name" />
+                <input type="text" placeholder="Email Address" />
+                <input type="tel" placeholder="Phone Number" />
+
+                <h1>SHIPPING</h1>
+                <input type="text" placeholder="Full Address" />
+                <input type="text" placeholder="City" />
+                <input type="text" placeholder="State/Province" />
+                <input type="text" placeholder="Postal Code" />
+                <input type="text" placeholder="Country" />
             </>
         )
     },
-    save() {
+    save({ attributes }) {
         return (
             <>
-                <h1>ANOTHER ONE!</h1>
-                <h1>HELLO WORLD!</h1>
-                <input type="text" placeholder="BITCH" />
+                <h1>{attributes.redirectTo}</h1>
+                <h1>CONTACT</h1>
+                <input type="text" placeholder="Full Name" />
+                <input type="text" placeholder="Email Address" />
+                <input type="tel" placeholder="Phone Number" />
+
+                <h1>SHIPPING</h1>
+                <input type="text" placeholder="Full Address" />
+                <input type="text" placeholder="City" />
+                <input type="text" placeholder="State/Province" />
+                <input type="text" placeholder="Postal Code" />
+                <input type="text" placeholder="Country" />
             </>
         )
     }
