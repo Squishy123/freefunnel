@@ -30,12 +30,12 @@ register_deactivation_hook(__FILE__, 'deactivate_freefunnel');
 
 
 // Core plugin class
-require plugin_dir_path(__FILE__).'includes/freefunnel.php';
+require plugin_dir_path(__FILE__).'includes/zebra-settings.php';
 
 // Start plugin execution
 function run_freefunnel() {
-    $plugin = new FreeFunnel();
-    $plugin->run();
+    #$plugin = new FreeFunnel();
+    #$plugin->run();
 }
 
 run_freefunnel();

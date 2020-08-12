@@ -8,24 +8,19 @@ function create_flow_init()
             'public' => true,
             'show_ui' => true,
             'show_in_menu' => "freefunnel_dashboard",
-            'capability_type' => 'page',
+            'capability_type' => 'post',
             'hierarchical' => false,
             'rewrite' => array('slug' => 'funnel'),
             'query_var' => true,
             'menu_icon' => 'dashicons-video-alt',
             'map_meta_cap' => true,
-            'show_in_rest' => true,
+            //'show_in_rest' => true,
             'supports' => array(
                 'editor',
                 'title',
-                'block',
-                'custom-fields',
-                'revisions',
                 'thumbnail',
-                'author',
-                'page-attributes',
-                'elementor',
-                'post-formats'
+                'slug',
+                'custom-fields',
             )
         );
         register_post_type('flow', $args);
