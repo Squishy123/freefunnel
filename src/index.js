@@ -3,7 +3,7 @@ import {
     InspectorControls,
 } from '@wordpress/block-editor';
 
-const { PanelBody, TextControl} = wp.components;
+const { PanelBody, TextControl } = wp.components;
 
 registerBlockType('zebra/entry-form', {
     // built in attributes
@@ -17,7 +17,8 @@ registerBlockType('zebra/entry-form', {
         redirectTo: {
             type: 'string',
             source: 'html',
-            default: '/'
+            default: '/',
+            selector: '#redirectTo'
         }
     },
 
@@ -33,17 +34,17 @@ registerBlockType('zebra/entry-form', {
                     <PanelBody title={'Redirect To'}>
                         <p>Define Redirect Link</p>
                         <TextControl label="RedirectTo" value={attributes.redirectTo} onChange={(val) => {
-                            setAttributes({redirectTo: val})
-                        }}/>
+                            setAttributes({ redirectTo: String(val) })
+                        }} />
                     </PanelBody>
                 </InspectorControls>
-                <h1>{attributes.redirectTo}</h1>
-                <h1>CONTACT</h1>
+                <p id="redirectTo">{attributes.redirectTo}</p>
+                <p>CONTACT</p>
                 <input type="text" placeholder="Full Name" />
                 <input type="text" placeholder="Email Address" />
                 <input type="tel" placeholder="Phone Number" />
 
-                <h1>SHIPPING</h1>
+                <p>SHIPPING</p>
                 <input type="text" placeholder="Full Address" />
                 <input type="text" placeholder="City" />
                 <input type="text" placeholder="State/Province" />
@@ -53,15 +54,18 @@ registerBlockType('zebra/entry-form', {
         )
     },
     save({ attributes }) {
+        const {
+            redirectTo
+        } = attributes;
         return (
             <>
-                <h1>{attributes.redirectTo}</h1>
-                <h1>CONTACT</h1>
+                <p id="redirectTo">{redirectTo}</p>
+                <p>CONTACT</p>
                 <input type="text" placeholder="Full Name" />
                 <input type="text" placeholder="Email Address" />
                 <input type="tel" placeholder="Phone Number" />
 
-                <h1>SHIPPING</h1>
+                <p>SHIPPING</p>
                 <input type="text" placeholder="Full Address" />
                 <input type="text" placeholder="City" />
                 <input type="text" placeholder="State/Province" />
