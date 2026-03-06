@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/Squishy123/freefunnel#readme",
   "devDependencies": {
-    "@wordpress/scripts": "^12.1.1",
+    "@wordpress/scripts": "^12.6.1",
     "eslint": "^7.7.0",
     "eslint-plugin-react": "^7.20.6",
     "postcss-cli": "^7.1.1",
