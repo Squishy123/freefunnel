@@ -28,7 +28,7 @@
     "react-toast-notifications": "^2.4.0",
     "react-transition-group": "^4.4.1",
     "react-use-cart": "^1.9.0",
-    "uuid": "^8.3.0"
+    "uuid": "^14.0.0"
   },
   "scripts": {
     "build": "npm run build:css && wp-scripts build",
